@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme="dark"] {
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-accent: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --bg: #0A1330;
+  --surface: #101D45;
+  --text: #FFFFFF;
+  --text-muted: #C9D3EE;
+  --border: rgba(157, 184, 255, 0.2);
+  --accent: #FF7A3D;
+  --ice: #9DB8FF;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #F5F7FB;
+  --surface: #FFFFFF;
+  --text: #0A1330;
+  --text-muted: #3B4766;
+  --border: rgba(10, 19, 48, 0.12);
+  --accent: #FF7A3D;
+  --ice: #6384D6;
+  color-scheme: light;
+}
+
+html {
+  background-color: #0A1330;
+  color: #C9D3EE;
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0A1330;
+  color: #C9D3EE;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+/* Ensure images have dark placeholder and consistent natural grading */
+img {
+  background-color: #0A1330;
+}
+
+/* Photo Grading: natural, cool-warm split tone, avoid oversaturation */
+.cinematic-photo {
+  filter: saturate(0.92) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.cinematic-photo:hover {
+  filter: saturate(0.96) contrast(1.08);
+}
+
+/* Dropdown and Form Controls styling */
+select {
+  color-scheme: dark;
+  background-color: #101D45;
+  color: #FFFFFF;
+}
+
+option {
+  background-color: #101D45;
+  color: #FFFFFF;
+  padding: 8px 12px;
+}
+
+/* Subtle Film Grain (3% opacity) */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Animated Mesh Gradient Background for Dark Sections */
+.mesh-gradient-dark {
+  background-color: #0A1330;
+  background-image: 
+    radial-gradient(at 15% 20%, rgba(16, 29, 69, 0.8) 0px, transparent 50%),
+    radial-gradient(at 85% 25%, rgba(255, 122, 61, 0.16) 0px, transparent 45%),
+    radial-gradient(at 50% 85%, rgba(157, 184, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 85%, rgba(16, 29, 69, 0.6) 0px, transparent 50%);
+}
+
+.mesh-gradient-coral {
+  background: linear-gradient(135deg, #FF7A3D 0%, #BA4512 40%, #0F1F4D 100%);
+}
+
+/* Coral Liquid Fill on Buttons */
+.coral-liquid-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.coral-liquid-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #E86529;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.coral-liquid-btn:hover::before {
+  transform: translateY(0%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A1330;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1B2F6E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF7A3D;
+}
+
+/* Infinite Marquee Animation */
+@keyframes infiniteMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: infiniteMarquee 35s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Section Spacing Utilities */
+.section-padding {
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee-infinite {
+    animation: none;
+  }
+}
