@@ -11,14 +11,16 @@ import {
   Calendar,
   Building,
   Video,
+  ExternalLink,
 } from 'lucide-react';
 import { siteContent } from '../data/content';
+import { siteConfig } from '../config/siteConfig';
 import { Logo } from './Logo';
 
 export const ContactView: React.FC = () => {
   const { brand, contact } = siteContent;
 
-  const [consultType, setConsultType] = useState('Office Briefing (SCO 23 MDC)');
+  const [consultType, setConsultType] = useState('Office Briefing (GMADA Aerocity)');
   const [preferredSlot, setPreferredSlot] = useState('Morning (10 AM - 1 PM)');
   const [formData, setFormData] = useState({
     name: '',
@@ -60,7 +62,7 @@ Requirements: ${formData.message || 'Looking for private consultation.'}`;
             Contact Trust Realtors
           </h1>
           <p className="text-base sm:text-lg text-[#C9D3EE] font-sans max-w-2xl mx-auto leading-relaxed">
-            Headquartered at SCO 23, 1st Floor, MDC Sector 5, Panchkula. Serving Chandigarh, Mohali, New Chandigarh, Zirakpur, and select premium Indian markets.
+            Headquartered at {siteConfig.addressShort}. Serving Mohali, Chandigarh, Panchkula, New Chandigarh, Zirakpur, and select premium Indian markets.
           </p>
         </div>
       </section>
@@ -142,7 +144,7 @@ Requirements: ${formData.message || 'Looking for private consultation.'}`;
             </div>
 
             {/* Real Google Map Embed in Rounded Frame */}
-            <div className="h-72 rounded-3xl overflow-hidden border border-[#9DB8FF]/25 shadow-xl bg-[#101D45] relative">
+            <div className="h-72 rounded-3xl overflow-hidden border border-[#9DB8FF]/25 shadow-xl bg-[#101D45] relative group">
               <iframe
                 title="Trust Realtors Location Map"
                 src={contact.googleMapsEmbedUrl}
@@ -154,6 +156,15 @@ Requirements: ${formData.message || 'Looking for private consultation.'}`;
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full grayscale contrast-125 opacity-85 hover:opacity-100 transition-opacity"
               />
+              <a
+                href={contact.googleMapsDirectionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 px-3.5 py-1.5 rounded-full bg-[#0A1330]/90 backdrop-blur-md border border-[#9DB8FF]/30 text-white text-xs font-sans font-bold flex items-center gap-1.5 shadow-lg hover:border-[#FF7A3D] hover:text-[#FF7A3D] transition-colors"
+              >
+                <span>Get Directions</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
@@ -181,7 +192,7 @@ Requirements: ${formData.message || 'Looking for private consultation.'}`;
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                       {[
-                        { id: 'Office Briefing (SCO 23 MDC)', icon: Building, label: 'In-Office (MDC)' },
+                        { id: 'Office Briefing (GMADA Aerocity)', icon: Building, label: 'In-Office (Aerocity)' },
                         { id: 'Private Video Conference', icon: Video, label: 'Video Call' },
                         { id: 'On-Site Property Walkthrough', icon: Calendar, label: 'Site Inspection' },
                       ].map((mode) => {

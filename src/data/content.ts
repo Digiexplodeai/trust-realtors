@@ -7,6 +7,8 @@
  * ============================================================================
  */
 
+import { siteConfig } from '../config/siteConfig';
+
 export interface PropertyListing {
   id: string;
   title: string;
@@ -151,31 +153,31 @@ export const siteContent = {
     },
     positioning: "Curated luxury residences, villas, plots, commercial spaces and investment properties across the Tricity and India, handled with discretion, transparency and long-term value.",
     yearEstablished: "2016",
-    address: "SCO 23, 1st Floor, MDC, Sector-5, Panchkula",
-    phone: "+91 7307777726",
-    email: "info@trustrealtors.co.in",
-    hours: "10:00 am to 7:00 pm (By appointment)",
+    address: siteConfig.addressShort,
+    phone: siteConfig.phone,
+    email: siteConfig.email,
+    hours: siteConfig.hours,
     // [OWNER EDITABLE] Empty by default. RERA badge will ONLY render if a real license number is entered here.
     reraNumber: "", 
   },
 
   // CONTACT & OFFICE DETAILS [OWNER EDITABLE]
   contact: {
-    address: "SCO 23, 1st Floor, MDC, Sector-5, Panchkula",
-    addressFull: "SCO 23, 1st Floor, MDC, Sector-5, Panchkula, Haryana 134114, India",
-    phone: "+91 7307777726",
-    phoneDisplay: "+91 73077 77726",
-    phoneTel: "+917307777726",
-    phoneRaw: "+917307777726",
-    email: "info@trustrealtors.co.in", // [OWNER EDITABLE]
-    officeHours: "10:00 am to 7:00 pm",
-    officeDays: "Monday to Sunday (By appointment)",
-    appointmentNote: "Consultations are held by appointment to guarantee undivided attention and client privacy.",
-    whatsappBaseUrl: "https://wa.me/917307777726",
-    whatsappDefaultText: "Hi, I'm interested in a private property consultation with Trust Realtors. Could you share more details?",
-    // Real Google Maps embed URL for SCO 23 MDC Sector 5 Panchkula
-    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.3475143329977!2d76.84883447558066!3d30.708605374596357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f9340632b6b55%3A0xe54b9bc99c272bc1!2sMDC%20Sector%205%2C%20Panchkula%2C%20Haryana%20134114!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-    googleMapsDirectionsUrl: "https://maps.google.com/?q=SCO+23+MDC+Sector+5+Panchkula",
+    address: siteConfig.addressShort,
+    addressFull: siteConfig.addressFull,
+    phone: siteConfig.phone,
+    phoneDisplay: siteConfig.phoneDisplay,
+    phoneTel: siteConfig.phoneTel,
+    phoneRaw: siteConfig.phoneRaw,
+    email: siteConfig.email,
+    officeHours: siteConfig.officeHours,
+    officeDays: siteConfig.officeDays,
+    appointmentNote: siteConfig.appointmentNote,
+    whatsappBaseUrl: siteConfig.whatsappBaseUrl,
+    whatsappDefaultText: siteConfig.whatsappDefaultText,
+    // Real Google Maps embed URL for DSS 91, Citi Centre, F-Block, GMADA Aerocity, Mohali 140603
+    googleMapsEmbedUrl: siteConfig.googleMapsEmbedUrl,
+    googleMapsDirectionsUrl: siteConfig.googleMapsDirectionsUrl,
     socials: {
       instagram: "https://instagram.com/trustrealtors",
       linkedin: "https://linkedin.com/company/trust-realtors",
@@ -725,7 +727,7 @@ export const siteContent = {
   faqs: [
     {
       question: "How does a private consultation with Trust Realtors work?",
-      answer: "We begin with a confidential discovery discussion (in person at our MDC Sector-5 office or via call) to understand your lifestyle requirements, spatial preferences, timeline, and budget parameters. We then curate an exclusive, pre-vetted dossier of matching properties and arrange discreet private viewings at your convenience.",
+      answer: `We begin with a confidential discovery discussion (in person at our ${siteConfig.officeHeading} office or via call) to understand your lifestyle requirements, spatial preferences, timeline, and budget parameters. We then curate an exclusive, pre-vetted dossier of matching properties and arrange discreet private viewings at your convenience.`,
       category: "Advisory"
     },
     {
@@ -740,7 +742,7 @@ export const siteContent = {
     },
     {
       question: "Which geographic areas and cities do you primarily cover?",
-      answer: "Our home base is Panchkula (MDC, Sectors 2, 4, 6, 12A, Pinjore-Kalka Urban Complex). We have comprehensive active coverage across the entire Tricity — Chandigarh, Mohali, New Chandigarh, and Zirakpur. We also handle select luxury retreats in Kasauli, Himachal, and bespoke acquisitions in Gurugram and North Goa.",
+      answer: `Our headquarters is located at ${siteConfig.addressShort}. We have comprehensive active coverage across the entire Tricity — Mohali, Chandigarh, Panchkula, New Chandigarh, and Zirakpur. We also handle select luxury retreats in Kasauli, Himachal, and bespoke acquisitions in Gurugram and North Goa.`,
       category: "Coverage"
     },
     {

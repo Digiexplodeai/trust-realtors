@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Clock, ShieldCheck, ExternalLink } from 'lucide-react';
 import { siteContent } from '../data/content';
 import { Logo } from './Logo';
 
@@ -129,9 +129,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Real Google Maps Embed in Rounded Frame (4 cols) */}
           <div className="lg:col-span-4 flex flex-col">
-            <span className="text-xs font-sans uppercase tracking-wider text-[#FF7A3D] font-bold block mb-3">
-              Consultancy Location
-            </span>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-sans uppercase tracking-wider text-[#FF7A3D] font-bold">
+                Consultancy Location
+              </span>
+              <a
+                href={contact.googleMapsDirectionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-sans text-[#C9D3EE] hover:text-[#FF7A3D] flex items-center gap-1 font-semibold transition-colors"
+              >
+                <span>Get Directions</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#FF7A3D]" />
+              </a>
+            </div>
             <div className="w-full h-56 rounded-2xl overflow-hidden border border-[#9DB8FF]/25 shadow-xl bg-[#101D45] relative">
               <iframe
                 title="Trust Realtors Office Location"
@@ -146,7 +157,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               />
             </div>
             <span className="text-xs text-[#C9D3EE] mt-2 font-sans font-semibold">
-              SCO 23, 1st Floor, MDC, Sector-5, Panchkula
+              {brand.address}
             </span>
           </div>
         </div>

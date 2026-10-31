@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, ArrowRight, Compass, Sparkles } from 'lucide-react';
 import { siteContent, MapArea } from '../data/content';
+import { siteConfig } from '../config/siteConfig';
 
 interface TricityMapProps {
   onSelectAreaProperties: (areaName: string) => void;
@@ -52,7 +53,7 @@ export const TricityMap: React.FC<TricityMapProps> = ({ onSelectAreaProperties }
               <span className="flex items-center gap-1.5 font-bold text-white">
                 <Sparkles className="w-4 h-4 text-[#FF7A3D]" /> Tricity Regional Corridors
               </span>
-              <span className="text-[#C9D3EE] font-semibold">30.7086° N, 76.8488° E</span>
+              <span className="text-[#C9D3EE] font-semibold">{siteConfig.geo.coordinatesDisplay}</span>
             </div>
 
             {/* Stylized Illustrated Dark Vector Map */}

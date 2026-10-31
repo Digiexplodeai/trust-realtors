@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Shield, ArrowRight } from 'lucide-react';
 import { siteContent, MilestoneItem } from '../data/content';
+import { siteConfig } from '../config/siteConfig';
 import { Logo } from './Logo';
 
 interface AboutViewProps {
@@ -205,7 +206,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onContactClick }) => {
               Discuss Your Property Requirements
             </h3>
             <p className="text-base text-[#C9D3EE] font-sans">
-              Visit our SCO 23 MDC Panchkula office for a confidential briefing.
+              Visit our {siteConfig.officeHeading} office for a confidential briefing.
             </p>
           </div>
           <button

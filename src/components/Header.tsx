@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, scrollP
                     isOverLight ? 'text-[#3B4766]' : 'text-lightText'
                   }`}
                 >
-                  Panchkula • Tricity
+                  Mohali • Tricity
                 </span>
               </div>
             </button>

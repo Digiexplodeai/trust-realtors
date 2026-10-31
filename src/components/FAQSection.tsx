@@ -40,7 +40,7 @@ export const FAQSection: React.FC = () => {
                 Need bespoke guidance?
               </span>
               <p className="text-sm text-[#3B4766] mb-4 leading-relaxed">
-                Our senior advisory partners are available for confidential consultations at our Panchkula headquarters.
+                Our senior advisory partners are available for confidential consultations at our GMADA Aerocity (Mohali) headquarters.
               </p>
               <a
                 href={`${siteContent.contact.whatsappBaseUrl}?text=${encodeURIComponent(
